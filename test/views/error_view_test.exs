@@ -4,9 +4,10 @@ defmodule TestApp.ErrorViewTest do
   # Bring render/3 and render_to_string/3 for testing custom views
   import Phoenix.View
 
-  test "renders 404.html" do
-    assert render_to_string(TestApp.ErrorView, "404.html", []) ==
-           "Page not found"
+  test "renders not_found.html" do
+    conn = get build_conn, "/not/found"
+    assert html_response(conn, 404) =~
+           "Sorry, the page you are looking for does not exist"
   end
 
   test "render 500.html" do
