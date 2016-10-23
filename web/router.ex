@@ -20,6 +20,7 @@ defmodule TestApp.Router do
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
     get "/test", HelloController, :test
+    resources "/users", UserController
     # resources "/users", UserController do
     #   resources "/comments", CommentsController
     # end
