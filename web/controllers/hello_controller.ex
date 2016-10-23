@@ -5,6 +5,10 @@ defmodule TestApp.HelloController do
     render conn, "index.html"
   end
 
+  def test(conn, _params) do
+    render conn, "test.html"
+  end
+
   # If need to access all the params just pattern match like this:
   # show(conn, %{"messenger" => messenger} = params)
   # Passsing variables to render instead of pattern matching:
