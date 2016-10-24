@@ -4,7 +4,10 @@ defmodule TestApp.UserController do
   alias TestApp.User
 
   def index(conn, _params) do
-    users = Repo.all(User)
+    users =
+      User
+      |> Repo.all
+      |> Repo.preload([:videos])
     render(conn, "index.html", users: users)
   end
 
@@ -27,7 +30,10 @@ defmodule TestApp.UserController do
   end
 
   def show(conn, %{"id" => id}) do
-    user = Repo.get!(User, id)
+    user =
+      User
+      |> Repo.get!(id)
+      |> Repo.preload([:videos])
     render(conn, "show.html", user: user)
   end
 

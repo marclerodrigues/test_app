@@ -21,6 +21,14 @@
     <strong>Number of pets:</strong>
     <%= @user.number_of_pets %>
   </li>
+  <%= if length(@user.videos) >= 1 do %>
+    <li>
+      <strong>Videos:</strong>
+      <%= for video <- @user.videos do %>
+        <%= video %>
+      <% end %>
+    </li>
+  <% end %>
 
 </ul>
 

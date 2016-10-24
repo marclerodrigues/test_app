@@ -6,6 +6,7 @@ defmodule TestApp.User do
     field :email, :string
     field :bio, :string
     field :number_of_pets, :integer
+    has_many :videos, TestApp.Video
 
     timestamps()
   end
